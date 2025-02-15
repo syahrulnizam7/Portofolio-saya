@@ -246,27 +246,26 @@
         </div>
     </section>
 
-    <!-- Tambahkan Alpine.js -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x/dist/cdn.min.js" defer></script>
+   
 
     <!-- Projects Section -->
-    <section id="projects" class="py-24" x-data="{ category: 'all' }">
+    <section id="projects" class="py-24" x-data="{ category: 'all' }" x-init="() => { ScrollTrigger.refresh(); }">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-6 text-center text-[#00ff88]">&lt;Projects /&gt;</h2>
 
             <!-- Tombol Kategori -->
             <div class="flex justify-center gap-4 mb-8">
-                <button @click="category = 'all'"
+                <button @click="category = 'all'; ScrollTrigger.refresh()"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'all' }">
                     All
                 </button>
-                <button @click="category = 'programming'"
+                <button @click="category = 'programming'; ScrollTrigger.refresh()"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'programming' }">
                     Programming
                 </button>
-                <button @click="category = 'video-editing'"
+                <button @click="category = 'video-editing'; ScrollTrigger.refresh()"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'video-editing' }">
                     Video Editing
@@ -336,8 +335,8 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <div class="flex gap-2">
-                            <span class="px-2 py-1 rounded bg-[#1a1d24] text-xs">Kotlin</span>
-                            <span class="px-2 py-1 rounded bg-[#1a1d24] text-xs">Android</span>
+                            <span class="px-2 py-1 rounded bg-[#1a1d24] text-xs">CNN</span>
+                            <span class="px-2 py-1 rounded bg-[#1a1d24] text-xs">Web</span>
                         </div>
                         <a href="https://github.com/syahrulnizam7/VeriRupiah" class="text-[#00ff88] hover:underline">
                             <i class="fab fa-github text-2xl"></i>
