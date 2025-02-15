@@ -74,7 +74,6 @@
 </head>
 
 <body class="min-h-screen">
-    <div id="cursor"></div>
 
     <!-- Matrix-like Background -->
     <div class="fixed inset-0 pointer-events-none opacity-20" id="matrix-bg"></div>
@@ -255,17 +254,17 @@
 
             <!-- Tombol Kategori -->
             <div class="flex justify-center gap-4 mb-8">
-                <button @click="category = 'all'; ScrollTrigger.refresh()"
+                <button @click="category = 'all'; setTimeout(() => ScrollTrigger.refresh(), 100)"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'all' }">
                     All
                 </button>
-                <button @click="category = 'programming'; ScrollTrigger.refresh()"
+                <button @click="category = 'programming'; setTimeout(() => ScrollTrigger.refresh(), 100)"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'programming' }">
                     Programming
                 </button>
-                <button @click="category = 'video-editing'; ScrollTrigger.refresh()"
+                <button @click="category = 'video-editing'; setTimeout(() => ScrollTrigger.refresh(), 100)"
                     class="px-4 py-2 rounded bg-[#1a1d24] text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition"
                     :class="{ 'bg-[#00ff88] text-black': category === 'video-editing' }">
                     Video Editing
