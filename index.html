@@ -10,9 +10,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link id="favicon-dark" rel="icon" href="logo_fordarktheme.png" type="image/png" media="(prefers-color-scheme: dark)">
-  
-  <style>
+    <link id="favicon-dark" rel="icon" href="logo_fordarktheme.png" type="image/png"
+        media="(prefers-color-scheme: dark)">
+
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
         html {
@@ -39,9 +40,12 @@
         .cursor::after {
             content: '|';
             animation: cursor 1s infinite;
+            display: inline;
+            margin-left: -5px;
+            vertical-align: baseline;
         }
 
-        @keyframes cursor {
+        @keyframes blink {
 
             0%,
             100% {
@@ -122,8 +126,10 @@
                 <div class="md:w-1/2 space-y-6">
                     <div class="terminal-window p-6 rounded-lg">
                         <p class="text-[#00ff88] mb-2">$ whoami</p>
-                        <h1 class="text-4xl md:text-6xl font-bold mb-4 cursor">
-                            Syahrul Nizam
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                            Syahrul <span id="typing" class="cursor  text-green-500""></span>
+                        </h1>
+
                         </h1>
                         <p class="text-gray-400 text-lg mb-4 ">
                             Full Stack Developer | Video Editor | Content Creator
@@ -626,6 +632,33 @@
 
         // Run animations when DOM is loaded
         document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        const text = "Nizam";
+        const typingElement = document.getElementById('typing');
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (!isDeleting) {
+                typingElement.textContent = text.substring(0, index + 1);
+                index++;
+                if (index === text.length) {
+                    setTimeout(() => isDeleting = true, 1000);  // Tunggu 1 detik lalu hapus
+                }
+            } else {
+                typingElement.textContent = text.substring(0, index - 1);
+                index--;
+                if (index === 0) {
+                    isDeleting = false;
+                }
+            }
+            setTimeout(typeEffect, isDeleting ? 100 : 200);  // Kecepatan mengetik dan menghapus
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            typeEffect();
+        });
+
     </script>
 </body>
 
